@@ -8,15 +8,15 @@
  */
 export const normalizeString = (str: string) => {
   // VARIABLES
-  let from = 'ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç';
-  let to = 'AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc';
-  let mapping: Record<string, string> = {};
+  const from = 'ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç';
+  const to = 'AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc';
+  const mapping: Record<string, string> = {};
   for (let i = 0; i < from.length; i++) {
     mapping[from.charAt(i)] = to.charAt(i);
   }
-  let ret = [];
+  const ret = [];
   for (let i = 0; i < str.length; i++) {
-    let c = str.charAt(i);
+    const c = str.charAt(i);
     if (mapping.hasOwnProperty(str.charAt(i))) {
       ret.push(mapping[c]);
     } else {

@@ -28,8 +28,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
-    "prettier-plugin-tailwindcss": "^0.2.7",
     "prettier-plugin-prisma": "^4.10.0",
+    "prettier-plugin-tailwindcss": "^0.2.7",
     "turbo": "^1.9.3",
     "typescript": "^5.0.4"
   }
