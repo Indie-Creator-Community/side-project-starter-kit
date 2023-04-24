@@ -1,0 +1,13 @@
+{
+  "component": {
+    "button": {
+      "logInWithDiscord": "Iniciar sesión con Discord"
+    },
+    "navbar": {
+      "accountSettings": "Configuración de la cuenta"
+    }
+  },
+  "home": {
+    "pov": "Una forma sencilla de recompensar a tu comunidad"
+  }
+}

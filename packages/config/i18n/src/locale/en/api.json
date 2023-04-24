@@ -1,0 +1,17 @@
+{
+  "account": {
+    "create": {
+      "error": {
+        "notFound": "User not found"
+      }
+    }
+  },
+  "user": {
+    "create": {
+      "error": {
+        "userAlreadyExists": "User already exists",
+        "invalidInput": "Invalid input"
+      }
+    }
+  }
+}

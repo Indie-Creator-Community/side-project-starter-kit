@@ -1,6 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalDependencies": ["**/.env"],
+  "globalDependencies": ["**/.env.production", "**/.env.development", "**/.env.local"],
   "pipeline": {
     "db:generate": {
       "inputs": ["prisma/schema.prisma"],
@@ -16,7 +16,7 @@
     },
     "build": {
       "dependsOn": ["^build", "^db:generate"],
-      "outputs": [".next/**", ".expo/**"]
+      "outputs": [".next/**"]
     },
     "lint": {},
     "lint:fix": {},
@@ -33,15 +33,20 @@
   },
   "globalEnv": [
     "CI",
+    "PORT",
+    "PREFIX",
     "DATABASE_URL",
     "DISCORD_CLIENT_ID",
     "DISCORD_CLIENT_SECRET",
-    "EXPO_ROUTER_APP_ROOT",
+    "DISCORD_SERVER_ID",
+    "DISCORD_BOT_TOKEN",
+    "DISCORD_WEBHOOK_URL",
     "NEXTAUTH_SECRET",
     "NEXTAUTH_URL",
     "NODE_ENV",
     "SKIP_ENV_VALIDATION",
     "VERCEL",
-    "VERCEL_URL"
+    "VERCEL_URL",
+    "API_URL"
   ]
 }

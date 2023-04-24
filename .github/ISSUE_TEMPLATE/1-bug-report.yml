@@ -1,0 +1,93 @@
+name: 🐛 Bug Report
+description: File a bug report
+title: '[Bug]: '
+labels: ['Type: Bug']
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug. Your feedback helps us improve the quality of our product!
+  - type: input
+    id: contact
+    attributes:
+      label: Discord Username
+      description: How can we get in touch with you if we need more information?
+      placeholder: Please provide your Discord sername or other contact details
+    validations:
+      required: false
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity Level
+      description: How severe is the bug?
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Description of the Bug
+      description: Please describe what happened and what you were expecting to happen instead
+      placeholder: Please describe the bug you encountered
+      value: 'A bug happened!'
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system are you using?
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - iOS
+        - Android
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Browser(s)
+      multiple: true
+      description: Which browser(s) are you seeing the problem on?
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Opera
+        - Other (please specify in the bug description)
+    validations:
+      required: true
+  - type: dropdown
+    id: browser-version
+    attributes:
+      label: Browser Version(s)
+      multiple: true
+      description: What version(s) of the browser(s) are you using?
+      options:
+        - Latest
+        - Previous version
+        - Specific version (please specify in the bug description)
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Log Output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so there is no need to include backticks.
+      render: zsh
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

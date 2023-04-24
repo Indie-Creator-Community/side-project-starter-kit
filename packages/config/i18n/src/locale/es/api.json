@@ -1,0 +1,9 @@
+{
+  "account": {
+    "create": {
+      "error": {
+        "notFound": "Usuario no encontrado"
+      }
+    }
+  }
+}

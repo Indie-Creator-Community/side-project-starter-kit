@@ -1,0 +1,61 @@
+name: 💉 Failing Tests
+description: Report failing tests or CI jobs.
+title: '[Test]: '
+labels: ['Type: Test']
+assignees:
+  - octocat
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report this problem!
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting a new issue, please search both open and closed issues to ensure that your problem hasn't already been reported.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Which test(s) or job(s) are failing?
+      description: Please describe the failing tests or jobs in as much detail as possible, and tell us what you were expecting to happen.
+      placeholder: 'Describe the failing tests or jobs'
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason-of-failure
+    attributes:
+      label: Reason for failure
+      description: Please explain why the tests are failing or the jobs are not passing, and tell us what we might be missing to make them pass.
+      placeholder: 'Explain the reason for the failure'
+    validations:
+      required: true
+
+  - type: textarea
+    id: media-proof
+    attributes:
+      label: Media proof (optional)
+      description: If applicable, please attach screenshots or videos to help explain the problem.
+      placeholder: 'Attach media proof (optional)'
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context (optional)
+      description: Please provide any additional context or information that might be helpful in diagnosing the issue.
+      placeholder: 'Add any additional context or information (optional)'
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to abide by our [Code of Conduct](https://example.com).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

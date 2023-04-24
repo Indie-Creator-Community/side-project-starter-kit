@@ -4,6 +4,7 @@
   "main": "./index.ts",
   "types": "./index.ts",
   "license": "MIT",
+  "author": "Indie Creators HQ",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "lint": "eslint .",
@@ -13,6 +14,7 @@
   "dependencies": {
     "@acme/auth": "^0.1.0",
     "@acme/db": "^0.1.0",
+    "@acme/i18n": "^0.1.0",
     "@trpc/client": "^10.20.0",
     "@trpc/server": "^10.20.0",
     "superjson": "1.9.1",

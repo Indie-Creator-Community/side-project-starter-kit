@@ -1,0 +1,27 @@
+{
+  "actions": {
+    "create": "Crear",
+    "delete": "Eliminar",
+    "close": "Cerrar",
+    "connect": "Conectar",
+    "loading": "Cargando",
+    "back": "Atrás",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "logIn": "Iniciar sesión",
+    "logOut": "Cerrar sesión"
+  },
+  "inputs": {
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "Introduce tu correo electrónico"
+    }
+  },
+  "message": {
+    "error": {
+      "internalError": "Algo salió mal",
+      "unauthorized": "Por favor, inicia sesión para continuar",
+      "userNotFound": "Usuario no encontrado"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+name: ❓ Question or Support Request
+description: Questions and requests for support.
+title: 'Seeking assistance with [brief description of the issue]'
+labels: ['Type: Question']
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting a new question or support request, please search open and closed issues to avoid duplication.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Describe your question or request for support
+      description: Please provide a clear and concise description of your issue or question.
+      placeholder: Type your question or support request here
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

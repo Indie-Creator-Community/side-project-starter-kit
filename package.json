@@ -1,5 +1,5 @@
 {
-  "name": "create-t3-turbo",
+  "name": "side-project-starter-kit",
   "private": true,
   "engines": {
     "node": ">=v18.16.0"
@@ -19,12 +19,17 @@
   },
   "dependencies": {
     "@acme/eslint-config": "^0.1.0",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
     "@manypkg/cli": "^0.20.0",
     "@types/prettier": "^2.7.2",
     "eslint": "^8.38.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
     "prettier-plugin-tailwindcss": "^0.2.7",
+    "prettier-plugin-prisma": "^4.10.0",
     "turbo": "^1.9.3",
     "typescript": "^5.0.4"
   }

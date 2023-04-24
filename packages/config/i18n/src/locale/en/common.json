@@ -1,0 +1,27 @@
+{
+  "actions": {
+    "create": "Create",
+    "delete": "Delete",
+    "close": "Close",
+    "connect": "Connect",
+    "loading": "Loading",
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "logIn": "Log In",
+    "logOut": "Log Out"
+  },
+  "inputs": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email"
+    }
+  },
+  "message": {
+    "error": {
+      "internalError": "Something went wrong",
+      "unauthorized": "Please Log In to continue",
+      "userNotFound": "User not found"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+name: 🚀🆕 Feature Request
+description: Suggest an idea or possible new feature for this project.
+# title: " "
+labels: ['Type: Feature']
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting a new question or support request, please search open and closed issues to avoid duplication.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What problem does your feature request solve?
+      description: A clear and concise description of the problem your feature request solves.
+      placeholder: Describe the problem you want to resolve
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like
+      description: A clear and concise description of the solution or feature you want to request.
+      placeholder: Describe the feature you want to see implemented
+    validations:
+      required: true
+
+  - type: textarea
+    id: media-proof
+    attributes:
+      label: Describe alternatives you've considered
+      description: A clear and concise description of any alternative solutions or features you've considered.
+      placeholder: Describe any alternative solutions you've considered
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context or additional information about the problem or feature here.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

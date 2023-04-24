@@ -4,6 +4,7 @@
   "main": "./index.ts",
   "types": "./index.ts",
   "license": "MIT",
+  "author": "Indie Creators HQ",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "lint": "eslint .",

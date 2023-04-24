@@ -1,0 +1,76 @@
+name: 📚 Documentation or README.md issue report
+description: Report an issue in the project's documentation or README.md file.
+title: '[DOC]'
+labels: ['Documentation']
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        To expedite issue processing, please search open and closed issues before submitting a new one.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason-of-failure
+    attributes:
+      label: To Reproduce
+      description: |
+        Steps to reproduce the error:
+        (e.g.:)
+        1. Use x argument / navigate to
+        2. Fill this information
+        3. Go to...
+        4. See error
+      placeholder: Tell us what you see!
+      value: |
+        ```
+        1.
+        2.
+        3.
+        4.
+        ```
+    validations:
+      required: true
+  - type: textarea
+    id: media-proof
+    attributes:
+      label: Media proof
+      description: If applicable, add screenshots or videos to help explain your problem.
+      placeholder: Insert Images or Video
+    validations:
+      required: false
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like
+      description: A clear and concise description of what you want to happen.
+      placeholder: Tell us your solution to this problem!
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context or additional information about the problem here.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

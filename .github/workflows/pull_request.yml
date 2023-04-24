@@ -1,0 +1,97 @@
+name: Send Reward to the Assignee
+on:
+  pull_request:
+    types: [closed]
+jobs:
+  send-reward-to-assignee:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      - name: Get Issue Number
+        id: get_issue_number
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          issue_number=$(echo "${{ github.event.pull_request.title }}" | grep -oE '${{ vars.PROJECT_PREFIX }}-[0-9]+' | head -1 | cut -d'-' -f2)
+          echo "issue_number_int=$(echo $((issue_number)) | awk '{print int($0)}')" >> $GITHUB_OUTPUT
+
+      - name: Get Reward from Github Issue
+        uses: octokit/graphql-action@v2.x
+        id: get_reward
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_PERSONAL_TOKEN }}
+        with:
+          query: |
+            query GetCoinsAndAssigneeUser($owner:String!, $repo:String!, $issue:Int!, $field: String!) {
+              repository(owner:$owner, name:$repo) {
+                issue(number:$issue) {
+                  assignees(first: 10) {
+                    nodes {
+                      id
+                      avatarUrl
+                      email
+                      name
+                      login
+                    }
+                  }
+                  projectItems (first: 100) {
+                    nodes {
+                      fieldValueByName(name:$field) {
+                        ... on ProjectV2ItemFieldNumberValue {
+                          number
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          owner: ${{ github.event.repository.owner.login }}
+          repo: ${{ github.event.repository.name }}
+          issue: ${{ steps.get_issue_number.outputs.issue_number_int }}
+          field: ${{ vars.REWARD_FIELD_NAME }}
+
+      - name: Set Variables to Send Coins
+        id: vars_send_coins
+        run: |
+          echo "${{ steps.get_reward.outputs.data }}"
+          echo "github_id=${{ fromJson(steps.get_reward.outputs.data).repository.issue.assignees.nodes[0].id }}" >> $GITHUB_OUTPUT
+          echo "login=${{ fromJson(steps.get_reward.outputs.data).repository.issue.assignees.nodes[0].login }}" >> $GITHUB_OUTPUT
+          echo "name=${{ fromJson(steps.get_reward.outputs.data).repository.issue.assignees.nodes[0].name }}" >> $GITHUB_OUTPUT
+          echo "avatar_url=${{ fromJson(steps.get_reward.outputs.data).repository.issue.assignees.nodes[0].avatarUrl }}" >> $GITHUB_OUTPUT
+          echo "email=${{ fromJson(steps.get_reward.outputs.data).repository.issue.assignees.nodes[0].email }}" >> $GITHUB_OUTPUT
+          echo "coins=${{ fromJson(steps.get_reward.outputs.data).repository.issue.projectItems.nodes[0].fieldValueByName.number }}" >> $GITHUB_OUTPUT
+
+      - name: Send Coins By Github Id
+        uses: fjogeleit/http-request-action@v1
+        id: send_coins
+        with:
+          url: '${{secrets.API_URL}}/api/trpc/user.sendCoinsByGithubId?batch=1'
+          method: 'POST'
+          customHeaders: '{"Content-Type": "application/json"}'
+          data: '{"0":{"json":{"user":{"id":"${{ steps.vars_send_coins.outputs.github_id }}","login":"${{ steps.vars_send_coins.outputs.login }}","name":"${{ steps.vars_send_coins.outputs.name }}","email":"${{ steps.vars_send_coins.outputs.email }}","avatarUrl":"${{ steps.vars_send_coins.outputs.github_id }}"},"coins":"${{ steps.vars_send_coins.outputs.coins }}"}}}'
+
+      - name: Set Variables to Send Discord Message
+        id: vars_send_discord_msg
+        run: |
+          echo "username=${{ fromJson(steps.send_coins.outputs.response)[0].result.data.json.data.user.githubUserName }}" >> $GITHUB_OUTPUT
+          echo "pr_url=${{ github.event.pull_request.html_url }}" >> $GITHUB_OUTPUT
+          echo "coins=${{ steps.vars_send_coins.outputs.coins }}" >> $GITHUB_OUTPUT
+
+      - name: Send Discord Message
+        id: send_discord_message
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: '${{secrets.API_URL}}/api/trpc/bot.sendDiscordMsg?batch=1'
+          method: 'POST'
+          customHeaders: '{"Content-Type": "application/json"}'
+          data: '{"0": { "json":{ "username": "${{ steps.vars_send_discord_msg.outputs.username }}", "prUrl": "${{ steps.vars_send_discord_msg.outputs.pr_url }}", "coins": "${{ steps.vars_send_discord_msg.outputs.coins }}", "webhookDiscordUrl": "${{ secrets.DISCORD_WEBHOOK_URL }}" }}}'

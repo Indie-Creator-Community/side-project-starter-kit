@@ -1,0 +1,140 @@
+name: 🚨 Security Report
+description: Report an issue to help the project improve.
+# title: " "
+labels: ['Type: Security']
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting a new question or support request, please search open and closed issues to avoid duplication.
+
+        **Before submitting a new issue, please read the SECURITY.md file located in `.github/SECURITY.md`.**
+
+        ## Security Issue Reporting Guidelines
+
+        If your security report contains sensitive or private data, please do not post it publicly here. Instead, please send an email to (email@example.com) with the least amount of sensitive or private data as possible. We will deeply analyze and try to fix the issue as fast as possible.
+
+        The following types of information should not be posted in the public issue tracker:
+
+        * Legal and/or full names
+        * Names or usernames combined with other identifiers like phone numbers or email addresses
+        * Health or financial information (including insurance information, social security numbers, etc.)
+        * Information about political or religious affiliations
+        * Information about race, ethnicity, sexual orientation, gender, or other identifying information that could be used for discriminatory purposes
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Describe the security issue
+      description: A clear and concise description of what the bug is.
+      placeholder: Tell us what the security issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason-of-failure
+    attributes:
+      label: To Reproduce
+      description: |
+        Steps to reproduce the error:
+        (e.g.:)
+        1. Use x argument / navigate to
+        2. Fill this information
+        3. Go to...
+        4. See error
+      placeholder: Describe
+      value: |
+        1.
+        2.
+        3.
+        4.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: Expected behaviour
+      description: A clear and concise description of what you expected to happen.
+      placeholder: Describe
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: A clear and concise description of any alternative solutions or features you've considered.
+      placeholder: Describe
+    validations:
+      required: false
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system are you using?
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - iOS
+        - Android
+
+  - type: dropdown
+    id: node-version
+    attributes:
+      label: Node Version
+      description: What NodeJs version are you using?
+      options:
+        - 19.x
+        - 18.x
+        - 17.x
+        - 16.x
+        - 15.x
+        - Other (please specify in Additional context description)
+
+  - type: dropdown
+    id: npm-version
+    attributes:
+      label: Npm Version
+      description: What npm version are you using?
+      options:
+        - 9.x
+        - 8.x
+        - 7.x
+        - 6.x
+        - Other (please specify in Additional context description)
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Browser(s)
+      multiple: true
+      description: What browsers are you seeing the problem on?
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Opera
+        - Other (please specify in Additional context description)
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context or additional information about the problem here.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "index.ts",
   "license": "MIT",
+  "author": "Indie Creators HQ",
   "files": [
     "index.ts",
     "postcss.js"
@@ -10,6 +11,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.22",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.3.1",
+    "tailwindcss-scrollbar": "^0.1.0"
   }
 }
