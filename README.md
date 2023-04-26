@@ -1,15 +1,15 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Este repositorio fue creado con la intension de que pueda servir como proyecto base, orientado a la creacion de Side Projects que necesiten ser construidos de forma ordenada, escalable y sobretodo que permita agregar features rapidamente.
+This repository was created with the intention that it can serve as a base project, oriented to the creation of Side Projects that need to be built in an orderly, scalable and above all that allows to add features quickly.
 
-Esta basado en [T3 Stack](https://create.t3.gg/) son unas pequeñas modificaciones muy subjetivas.
+It is based on [T3 Stack](https://create.t3.gg/) with a few very subjective modifications.
 
-Simplemente clonando el proyecto, y configurando las variables de entorno, deberias poder empezar sin ningun tipo de problema.
+Simply cloning the project, and configuring the environment variables, you should be able to start without any problem.
 
 ### Installation
 
-A continuacion los pasos para ejecutar el proyecto:
+Here are the steps to execute the project:
 
 1. Clone the repo
    ```sh
