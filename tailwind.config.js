@@ -3,7 +3,7 @@
  */
 
 module.exports = {
-  content: [''],
+  content: ['./src/**/*.tsx', '../../node_modules/side-ui/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {},
   },
