@@ -1,5 +1,6 @@
 {
   "name": "side-project-starter-kit",
+  "version": "0.0.0",
   "private": true,
   "engines": {
     "node": ">=v18.16.0"
