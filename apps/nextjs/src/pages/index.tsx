@@ -22,7 +22,10 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
       <main className="relative flex h-screen w-full flex-none flex-col items-center justify-center gap-10 overflow-hidden bg-slate-900 p-10">
         <div className="relative flex h-min w-min flex-none flex-col flex-wrap items-center justify-center gap-4 overflow-hidden p-0">
           <div className="mb-2 flex flex-row items-center gap-4 text-white">
-            <a className="text-2xl font-semibold transition hover:opacity-80" href="/">
+            <a
+              className="text-secondary-300 text-2xl font-semibold transition hover:opacity-80"
+              href="/"
+            >
               Side Project Starter Kit
             </a>
           </div>
