@@ -7,8 +7,10 @@ It is based on [T3 Stack](https://create.t3.gg/) with a few very subjective modi
 
 Simply cloning the project, and configuring the environment variables, you should be able to start without any problem.
 
-More details here:
+**More details here:**
 https://twitter.com/serudda/status/1653172466725064705?s=20
+
+-----
 
 ### Installation
 
