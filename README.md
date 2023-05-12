@@ -29,6 +29,18 @@ Here are the steps to execute the project:
    ```js
    DISCORD_CLIENT_ID= 'ENTER YOUR CLIENT ID';
    ```
+
+   4.1 (Optional) Generate local Database
+   In order to generate a local database run the following statement:
+      ```
+      pnpm db:docker:startup
+      ```
+   It is required to modify `DATABASE_URL` variable at .env.* file to target the local database
+   If you want to shut down the database please execute the following statement
+      ```
+      pnpm db:docker:shutdown
+      ```
+
 5. This project uses an .env file depending on the environment in which the app is running.
 
    `local: .env.local`
@@ -48,3 +60,5 @@ Here are the steps to execute the project:
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
