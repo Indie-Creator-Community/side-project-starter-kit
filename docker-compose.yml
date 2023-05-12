@@ -1,8 +1,36 @@
 version: '3.8'
 services:
+  app:
+    profiles:
+      - deploy
+    build:
+      context: ./
+    environment:
+      DATABASE_URL: "postgresql://root:admin@postgres:5432/started-db?schema=public"
+    ports:
+      - 3000:3000
+    command: >
+      pnpm dev &
+      pnpm db:push
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/packages/api/node_modules
+      - /app/packages/auth/node_modules
+      - /app/packages/config/node_modules
+      - /app/packages/db/node_modules
+      - /app/apps/nextjs/node_modules
+      - /app/apps/nextjs/.next
+    networks:
+      - startedProject
+    depends_on:
+      - postgres
+      - pgadmin
+
   postgres:
     profiles:
       - db
+      - deploy
     image: postgres
     environment:
       POSTGRES_USER: root
@@ -14,11 +42,12 @@ services:
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
     networks:
-      - rewards
+      - startedProject
   
   pgadmin:
     profiles:
       - db
+      - deploy
     container_name: pgadmin
     image: dpage/pgadmin4
     environment:
@@ -28,8 +57,8 @@ services:
     ports:
       - "5050:80"
     networks:
-      - rewards
+      - startedProject
     restart: unless-stopped
 networks:
-  rewards:
+  startedProject:
     driver: bridge

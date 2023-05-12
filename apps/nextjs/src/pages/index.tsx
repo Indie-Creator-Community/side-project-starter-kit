@@ -27,7 +27,7 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
               className="text-2xl font-semibold text-secondary-300 transition hover:opacity-80"
               href="/"
             >
-              Side Project Starter Kit
+              Side Project Starter Kit-Hello Zyruks
             </a>
           </div>
           <div className="mb-4 w-96">

@@ -12,7 +12,9 @@ https://twitter.com/serudda/status/1653172466725064705?s=20
 
 -----
 
-### Installation
+## Installation 
+
+### Manual Installation
 
 Here are the steps to execute the project:
 
@@ -60,5 +62,25 @@ Here are the steps to execute the project:
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Docker Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Indie-Creator-Community/side-project-starter-kit.git
+   ```
+2. Change .env.template to .env.local and change the `DATABASE_URL`
+   ```sh
+   DATABASE_URL="postgresql://root:admin@postgres:5432/started-db?schema=public"
+   ```
+3. execute the following statement
+   ```sh
+   pnpm app:docker:startup
+   ```
+4. to shut down the application
+   ```sh
+   pnpm app:docker:shutdown
+   ```
+
 
 
