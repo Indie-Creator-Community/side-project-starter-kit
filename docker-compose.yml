@@ -2,7 +2,7 @@ version: '3.8'
 services:
   app:
     profiles:
-      - deploy
+      - dev
     build:
       context: ./
     environment:
@@ -30,7 +30,7 @@ services:
   postgres:
     profiles:
       - db
-      - deploy
+      - dev
     image: postgres
     environment:
       POSTGRES_USER: root
@@ -47,7 +47,7 @@ services:
   pgadmin:
     profiles:
       - db
-      - deploy
+      - dev
     container_name: pgadmin
     image: dpage/pgadmin4
     environment:
