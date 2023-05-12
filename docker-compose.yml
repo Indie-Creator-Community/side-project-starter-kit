@@ -1,10 +1,13 @@
 version: '3.8'
 services:
   postgres:
+    profiles:
+      - db
     image: postgres
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: admin
+      POSTGRES_DB: started-db
     restart: unless-stopped
     ports:
       - 5432:5432
@@ -14,6 +17,8 @@ services:
       - rewards
   
   pgadmin:
+    profiles:
+      - db
     container_name: pgadmin
     image: dpage/pgadmin4
     environment:
