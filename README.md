@@ -30,16 +30,22 @@ Here are the steps to execute the project:
    DISCORD_CLIENT_ID= 'ENTER YOUR CLIENT ID';
    ```
 
-   4.1 (Optional) Generate local Database
-   In order to generate a local database run the following statement:
+   4.1 (Optional) Generate Local Database
+   Before proceeding, please ensure that Docker is installed and docker's daemon is running on your system. If you don't have Docker, you will need to install it.
+   
+   To generate a local database, execute the following command:
       ```
       pnpm db:docker:startup
       ```
-   It is required to modify `DATABASE_URL` variable at .env.* file to target the local database
-   If you want to shut down the database please execute the following statement
+   This command will create a local database using Docker. Please note that you will need to modify the `DATABASE_URL` variable in your .env.* file to point to this local database.
+
+   If you need to shut down the database at any time, you can do so by executing the following command:
+
       ```
       pnpm db:docker:shutdown
       ```
+
+   This will safely shut down the Docker database. Remember to update your `DATABASE_URL` if you switch back to another database.
 
 5. This project uses an .env file depending on the environment in which the app is running.
 
