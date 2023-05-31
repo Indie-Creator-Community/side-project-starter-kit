@@ -5,7 +5,7 @@ node_modules
 .pnp
 .pnp.js
 
-# webstrom
+# webstorm
 .idea
 # testing
 coverage
