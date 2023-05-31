@@ -12,6 +12,8 @@
     "clean:workspaces": "turbo clean",
     "db:docker:startup": "docker compose --profile db up -d",
     "db:docker:shutdown": "docker compose --profile db down",
+    "app:docker:startup": "pnpm i && docker compose --profile dev up -d",
+    "app:docker:shutdown": "pnpm clean:workspaces && docker compose --profile dev down",
     "db:generate": "turbo db:generate",
     "db:push": "turbo db:push db:generate",
     "dev": "turbo dev --parallel",
