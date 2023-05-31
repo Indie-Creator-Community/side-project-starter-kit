@@ -1,3 +1,5 @@
+![image](https://github.com/Indie-Creator-Community/side-project-starter-kit/assets/10075532/6ef96197-5ac7-4812-a751-eb4308858ad7)
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
