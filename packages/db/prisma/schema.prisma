@@ -10,34 +10,29 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id      String @id @default(cuid())
-    title   String
-    content String
-}
-
 // NextAuth.js Models
 // NOTE: When using postgresql, mysql or sqlserver, 
 // uncomment the @db.Text annotations below
 // @see https://next-auth.js.org/schemas/models
 model Account {
-    id                String   @id @default(cuid())
-    userId            String   @map("user_id")
-    type              String
-    provider          String
-    providerAccountId String   @map("provider_account_id")
-    providerUsername  String?  @map("provider_username")
-    refresh_token     String?  @db.Text
-    access_token      String?  @db.Text
-    expires_at        Int?
-    token_type        String?
-    scope             String?
-    id_token          String?  @db.Text
-    session_state     String?
-    user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-    isActive          Boolean  @default(true) @map("is_active")
-    createdAt         DateTime @default(now()) @map("created_at")
-    updatedAt         DateTime @updatedAt @map("updated_at")
+    id                 String   @id @default(cuid())
+    userId             String   @map("user_id")
+    type               String
+    provider           String
+    providerAccountId  String   @map("provider_account_id")
+    refresh_token      String?  @db.Text
+    access_token       String?  @db.Text
+    oauth_token_secret String?  @db.Text
+    oauth_token        String?  @db.Text
+    expires_at         Int?
+    token_type         String?
+    scope              String?
+    id_token           String?  @db.Text
+    session_state      String?
+    user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    isActive           Boolean  @default(true) @map("is_active")
+    createdAt          DateTime @default(now()) @map("created_at")
+    updatedAt          DateTime @updatedAt @map("updated_at")
 
     @@unique([provider, providerAccountId])
     @@map("accounts")
@@ -69,6 +64,7 @@ model VerificationToken {
 model User {
     id            String    @id @default(cuid())
     name          String?
+    username      String?
     email         String?   @unique
     image         String    @default("")
     emailVerified DateTime? @map("email_verified")
