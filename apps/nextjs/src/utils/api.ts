@@ -17,7 +17,7 @@ export const api = createTRPCNext<AppRouter>({
       links: [
         loggerLink({
           enabled: (opts) =>
-            process.env.NODE_ENV === 'development' ||
+            process.env.NODE_ENV !== 'production' ||
             (opts.direction === 'down' && opts.result instanceof Error),
         }),
         httpBatchLink({
@@ -30,3 +30,5 @@ export const api = createTRPCNext<AppRouter>({
 });
 
 export { type RouterInputs, type RouterOutputs } from '@acme/api';
+export * from '@acme/api/src/common';
+export * from '@acme/db/common';
