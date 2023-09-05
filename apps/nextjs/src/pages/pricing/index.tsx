@@ -6,11 +6,10 @@ const Pricing: NextPage = () => {
       {/* PRICING TIERS SECTION */}
       <section className="relative my-10 pt-20">
         <div className="container relative z-20 mx-auto flex flex-col items-center px-4 md:px-0">
-          <h1 className="text-fluid-lg animate-fade-up font-bold">Pricing</h1>
+          <h1 className="text-fluid-lg animate-fade-up text-5xl font-bold">Pricing</h1>
 
           <p className="animate-fade-up animate-delay-100 mx-auto mb-6 max-w-[40ch] text-center text-slate-300 md:text-lg">
-            Start creating, visualizing, and exploring your tweets like never before with
-            Twon&apos;s pricing plans.
+            Start your 14-day free trial today. No credit card required.
           </p>
 
           {/* Card section */}
