@@ -39,9 +39,9 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
             <Button
               variant={ButtonVariant.secondary}
               size={ButtonSize.sm}
-              onClick={() => signIn('discord')}
+              onClick={() => signIn('twitter')}
             >
-              {t('nextjs:component.button.logInWithDiscord')}
+              {t('nextjs:component.button.logInWithTwitter')}
             </Button>
           )}
         </div>
@@ -50,7 +50,7 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
         <div className="flex flex-wrap justify-center gap-x-1 gap-y-3 sm:gap-x-2 lg:justify-start">
           <Link
             className="group relative isolate flex flex-none items-center gap-x-3 rounded-lg px-2 py-0.5 font-medium text-white/30 transition-colors hover:text-primary-200"
-            href="https://discord.com/invite/77guznJ8mZ"
+            href="https://indiecreatorshq.com/discord"
             target="_blank"
           >
             <Icon icon={IconCatalog.discord} className="h-6 w-6 text-white" isSolid />

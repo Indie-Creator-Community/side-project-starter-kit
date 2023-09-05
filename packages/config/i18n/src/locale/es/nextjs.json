@@ -1,7 +1,8 @@
 {
   "component": {
     "button": {
-      "logInWithDiscord": "Iniciar sesión con Discord"
+      "logInWithDiscord": "Iniciar sesión con Discord",
+      "logInWithTwitter": "Iniciar sesión con Twitter"
     },
     "navbar": {
       "accountSettings": "Configuración de la cuenta"
