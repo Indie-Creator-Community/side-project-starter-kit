@@ -1,14 +1,14 @@
 import { accountRouter } from './router/account';
 import { authRouter } from './router/auth';
-import { postRouter } from './router/post';
+import { subscriptionPlanRouter } from './router/subscriptionPlan';
 import { userRouter } from './router/user';
 import { createTRPCRouter } from './trpc';
 
 export const appRouter = createTRPCRouter({
   account: accountRouter,
   auth: authRouter,
+  subscriptionPlan: subscriptionPlanRouter,
   user: userRouter,
-  post: postRouter,
 });
 
 // export type definition of API
