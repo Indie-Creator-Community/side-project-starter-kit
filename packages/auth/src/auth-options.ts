@@ -1,7 +1,8 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { type DefaultSession, type NextAuthOptions } from 'next-auth';
 import TwitterProvider, { type TwitterLegacyProfile } from 'next-auth/providers/twitter';
-import { prisma } from '@acme/db';
+import { prisma, type SubscriptionPlanSlug } from '@acme/db';
+import { createUserSubscriptionHandler, getUserSubscriptionPlanHandler } from './utils/api';
 
 /**
  * Module augmentation for `next-auth` types
@@ -14,6 +15,7 @@ declare module 'next-auth' {
     user: {
       id: string;
       username: string;
+      subscriptionPlan: SubscriptionPlanSlug | null;
 
       // ...other properties
       // role: UserRole;
@@ -73,8 +75,26 @@ export const authOptions: NextAuthOptions = {
         session.user.email = user.email;
         session.user.image = user.image;
         // session.user.role = user.role; <-- put other properties on the session here
+
+        // get the user's subscription
+        const subscriptionPlan = await getUserSubscriptionPlanHandler(user.id);
+        session.user.subscriptionPlan = subscriptionPlan || null;
       }
       return session;
+    },
+  },
+
+  /**
+   * Events allow Next-Auth to do some custom action after certain user actions like creating a new account or signing in,
+   * without blocking the auth flow. Read more about the event system.
+   * Next-Auth will call this function after a new user account is registered.
+   * @see https://dev.to/ajones_codes/how-to-add-user-accounts-and-paid-subscriptions-to-your-nextjs-website-585e
+   * @see https://next-auth.js.org/configuration/events
+   */
+  events: {
+    createUser: async ({ user }) => {
+      // Connect user with the subscription free plan
+      await createUserSubscriptionHandler(user);
     },
   },
 };
