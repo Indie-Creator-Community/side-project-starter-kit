@@ -1,15 +1,15 @@
 import {
   getAllSubscriptionPlansHandler,
-  getNextTierSubscriptionPlanHandler,
   getSubscriptionPlanByIdHandler,
+  getSubscriptionPlanByProductIdHandler,
   getSubscriptionPlanBySlugHandler,
 } from '../controllers/subscriptionPlan.controller';
 import {
   getAllSubscriptionPlansInput,
-  getNextTierSubscriptionPlanInput,
   getSubscriptionPlanByIdInput,
+  getSubscriptionPlanByProductIdInput,
   getSubscriptionPlanBySlugInput,
-} from '../schema/subscriptionPlans.schema';
+} from '../schema/subscriptionPlan.schema';
 import { createTRPCRouter, publicProcedure } from '../trpc';
 
 export const subscriptionPlanRouter = createTRPCRouter({
@@ -21,11 +21,11 @@ export const subscriptionPlanRouter = createTRPCRouter({
     .input(getSubscriptionPlanBySlugInput)
     .query(({ ctx, input }) => getSubscriptionPlanBySlugHandler({ ctx, input })),
 
+  getSubscriptionPlanByProductId: publicProcedure
+    .input(getSubscriptionPlanByProductIdInput)
+    .query(({ ctx, input }) => getSubscriptionPlanByProductIdHandler({ ctx, input })),
+
   getAllSubscriptionPlans: publicProcedure
     .input(getAllSubscriptionPlansInput)
     .query(({ ctx, input }) => getAllSubscriptionPlansHandler({ ctx, input })),
-
-  getNextTierSubscriptionPlan: publicProcedure
-    .input(getNextTierSubscriptionPlanInput)
-    .query(({ ctx, input }) => getNextTierSubscriptionPlanHandler({ ctx, input })),
 });

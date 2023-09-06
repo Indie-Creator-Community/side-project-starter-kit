@@ -1,12 +1,10 @@
-import { TRPCError } from '@trpc/server';
-import { TRPCErrorCode, type Params } from '../common';
+import { type Params } from '../common';
 import type {
   GetAllSubscriptionPlansInputType,
-  GetNextTierSubscriptionPlanInputType,
   GetSubscriptionPlanByIdInputType,
   GetSubscriptionPlanByProductIdInputType,
   GetSubscriptionPlanBySlugInputType,
-} from '../schema/subscriptionPlans.schema';
+} from '../schema/subscriptionPlan.schema';
 
 /**
  * Get subscription plan by id
@@ -50,42 +48,3 @@ export const getAllSubscriptionPlansHandler = async ({
   ctx,
 }: Params<GetAllSubscriptionPlansInputType>) =>
   ctx.prisma.subscriptionPlan.findMany({ orderBy: { createdAt: 'asc' } });
-
-/**
- * Get next tier subscription plan
- * @param ctx Ctx
- * @param input GetNextTierSubscriptionPlanInputType
- * @deprecated
- */
-export const getNextTierSubscriptionPlanHandler = async ({
-  ctx,
-  input,
-}: Params<GetNextTierSubscriptionPlanInputType>) => {
-  const { currentSubscriptionPlanId } = input;
-
-  const currentSubscriptionPlan = await ctx.prisma.subscriptionPlan.findUnique({
-    where: { id: currentSubscriptionPlanId },
-  });
-  if (!currentSubscriptionPlan) {
-    const message = 'current subscription plan not found';
-    throw new TRPCError({
-      code: TRPCErrorCode.NOT_FOUND,
-      message,
-    });
-  }
-
-  const nextTierSubscriptionPlan = await ctx.prisma.subscriptionPlan.findFirst({
-    where: {
-      tier: currentSubscriptionPlan.tier + 1,
-    },
-  });
-  if (!nextTierSubscriptionPlan) {
-    const message = 'next tier subscription plan not found';
-    throw new TRPCError({
-      code: TRPCErrorCode.NOT_FOUND,
-      message,
-    });
-  }
-
-  return nextTierSubscriptionPlan;
-};

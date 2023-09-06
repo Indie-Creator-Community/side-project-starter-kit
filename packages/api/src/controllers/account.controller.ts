@@ -7,6 +7,12 @@ import type {
   GetAllProvidersByUserIdInputType,
 } from '../schema/account.schema';
 
+/**
+ * Get all providers by user id
+ * @param ctx Ctx
+ * @param input GetAllProvidersByUserIdInputType
+ * @returns Account[]
+ */
 export const getAllProvidersByUserIdHandler = async ({
   ctx,
   input,
@@ -18,13 +24,18 @@ export const getAllProvidersByUserIdHandler = async ({
   });
 };
 
+/**
+ * Create account
+ * @param ctx Ctx
+ * @param input CreateAccountInputType
+ * @returns Account
+ */
 export const createAccountHandler = async ({ ctx, input }: Params<CreateAccountInputType>) => {
   try {
     const account = await ctx.prisma.account.create({
       data: {
         provider: input.provider,
         providerAccountId: input.providerAccountId,
-        providerUsername: input.providerUsername,
         type: input.type,
         user: {
           connect: { id: input.userId },
@@ -34,14 +45,14 @@ export const createAccountHandler = async ({ ctx, input }: Params<CreateAccountI
 
     return {
       status: Response.SUCCESS,
-      data: {
+      result: {
         account,
       },
     };
   } catch (error: unknown) {
     // Zod error (Invalid input)
     if (error instanceof z.ZodError) {
-      const message = i18n.t('api:account.create.error.notFound');
+      const message = i18n.t('createAccount: invalid input');
       throw new TRPCError({
         code: TRPCErrorCode.BAD_REQUEST,
         message,

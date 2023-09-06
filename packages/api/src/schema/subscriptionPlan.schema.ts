@@ -30,10 +30,3 @@ export const getAllSubscriptionPlansInput = z.object({});
 export type GetAllSubscriptionPlansInputType = TypeOf<typeof getAllSubscriptionPlansInput>;
 
 /*------------------------------------*/
-
-export const getNextTierSubscriptionPlanInput = z.object({
-  currentSubscriptionPlanId: z.string(),
-});
-export type GetNextTierSubscriptionPlanInputType = TypeOf<typeof getNextTierSubscriptionPlanInput>;
-
-/*------------------------------------*/
