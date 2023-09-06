@@ -10,13 +10,6 @@ export type GetUserSubscriptionInputType = TypeOf<typeof getUserSubscriptionInpu
 
 /*------------------------------------*/
 
-export const deleteUserSubscriptionInput = z.object({
-  userId: z.string(),
-});
-export type DeleteUserSubscriptionInputType = TypeOf<typeof deleteUserSubscriptionInput>;
-
-/*------------------------------------*/
-
 export const addUserSubscriptionInput = z.object({
   userId: z.string(),
   subscriptionPlanId: z.string(),
@@ -39,3 +32,10 @@ export const updateUserSubscriptionInput = z.object({
   isActive: z.boolean(),
 });
 export type UpdateUserSubscriptionInputType = TypeOf<typeof updateUserSubscriptionInput>;
+
+/*------------------------------------*/
+
+export const deleteUserSubscriptionInput = z.object({
+  userId: z.string(),
+});
+export type DeleteUserSubscriptionInputType = TypeOf<typeof deleteUserSubscriptionInput>;

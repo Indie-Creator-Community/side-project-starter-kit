@@ -6,7 +6,6 @@ import type {
   CreateUserInputType,
   GetUserByEmailInputType,
   GetUserInputType,
-  GetUserSubscriptionInputType,
 } from '../schema/user.schema';
 
 /**
@@ -95,22 +94,3 @@ export const createUserHandler = async ({ ctx, input }: Params<CreateUserInputTy
     }
   }
 };
-
-/**
- * Get user subscription
- * @param ctx Ctx
- * @param input GetUserSubscriptionInputType
- * @returns SubscriptionPlan
- */
-export const getUserSubscriptionHandler = async ({
-  ctx,
-  input,
-}: Params<GetUserSubscriptionInputType>) =>
-  await ctx.prisma.subscription.findFirst({
-    where: {
-      userId: input.userId,
-    },
-    select: {
-      subscriptionPlan: true,
-    },
-  });
