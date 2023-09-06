@@ -1,16 +1,11 @@
-import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next';
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { signIn, useSession } from 'next-auth/react';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Button, ButtonSize, ButtonVariant } from 'side-ui';
 import { Icon, IconCatalog } from '~/components';
 
-type HomeProps = {};
-
-const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { t } = useTranslation(['nextjs']);
+const Home: NextPage = () => {
   const { data: sessionData } = useSession();
 
   return (
@@ -31,7 +26,9 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
             </a>
           </div>
           <div className="mb-4 w-96">
-            <h1 className="text-center text-3xl font-bold text-slate-50">{t('nextjs:home.pov')}</h1>
+            <h1 className="text-center text-3xl font-bold text-slate-50">
+              This is a starter kit template
+            </h1>
           </div>
           {sessionData ? (
             <p className="text-lg text-white">{sessionData.user.name}</p>
@@ -41,7 +38,7 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
               size={ButtonSize.sm}
               onClick={() => signIn('twitter')}
             >
-              {t('nextjs:component.button.logInWithTwitter')}
+              Log in with Twitter
             </Button>
           )}
         </div>
@@ -74,11 +71,5 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
     </>
   );
 };
-
-export const getServerSideProps: GetServerSideProps<HomeProps> = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale ?? 'en', ['nextjs'])),
-  },
-});
 
 export default Home;

@@ -1,6 +1,5 @@
 import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
-import { i18n } from '@acme/i18n';
 import { Response, TRPCErrorCode, type Params } from '../common';
 import type {
   CreateAccountInputType,
@@ -52,7 +51,7 @@ export const createAccountHandler = async ({ ctx, input }: Params<CreateAccountI
   } catch (error: unknown) {
     // Zod error (Invalid input)
     if (error instanceof z.ZodError) {
-      const message = i18n.t('createAccount: invalid input');
+      const message = 'createAccount: invalid input';
       throw new TRPCError({
         code: TRPCErrorCode.BAD_REQUEST,
         message,
@@ -62,7 +61,7 @@ export const createAccountHandler = async ({ ctx, input }: Params<CreateAccountI
     // TRPC error (Custom error)
     if (error instanceof TRPCError) {
       if (error.code === TRPCErrorCode.UNAUTHORIZED) {
-        const message = i18n.t('common:message.error.unauthorized');
+        const message = 'createAccount: unauthorized';
         throw new TRPCError({
           code: TRPCErrorCode.UNAUTHORIZED,
           message,

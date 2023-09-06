@@ -4,9 +4,7 @@ import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import type { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
-import { appWithTranslation } from 'next-i18next';
 import { api } from '~/utils/api';
-import nextI18NextConfig from '../../next-i18next.config.js';
 
 export type NextPageWithLayout<P = Record<string, never>, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -27,4 +25,4 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppPropsWithLa
   );
 };
 
-export default api.withTRPC(appWithTranslation(App, nextI18NextConfig));
+export default api.withTRPC(App);
