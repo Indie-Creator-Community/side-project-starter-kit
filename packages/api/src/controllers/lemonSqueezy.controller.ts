@@ -5,8 +5,11 @@ import type {
   GetVariantByIdInputType,
   SubscriptionCreatedInputType,
 } from '../schema/lemonSqueezy.schema';
+import {
+  addUserSubscriptionHandler,
+  deleteUserSubscriptionHandler,
+} from './subscription.controller';
 import { getSubscriptionPlanByProductIdHandler } from './subscriptionPlan.controller';
-import { addUserSubscriptionHandler, deleteUserSubscriptionHandler } from './user.controller';
 
 /**
  * Subscription created (Lemon Squeezy)
