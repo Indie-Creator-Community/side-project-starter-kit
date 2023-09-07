@@ -6,6 +6,10 @@
       "inputs": ["prisma/schema.prisma"],
       "cache": false
     },
+    "db:migrate": {
+      "inputs": ["prisma/schema.prisma"],
+      "cache": false
+    },
     "db:push": {
       "inputs": ["prisma/schema.prisma"],
       "cache": false
@@ -36,17 +40,15 @@
     "PORT",
     "PREFIX",
     "DATABASE_URL",
-    "DISCORD_CLIENT_ID",
-    "DISCORD_CLIENT_SECRET",
-    "DISCORD_SERVER_ID",
-    "DISCORD_BOT_TOKEN",
-    "DISCORD_WEBHOOK_URL",
     "NEXTAUTH_SECRET",
     "NEXTAUTH_URL",
     "NODE_ENV",
     "SKIP_ENV_VALIDATION",
+    "TWITTER_CONSUMER_KEY",
+    "TWITTER_CONSUMER_SECRET",
+    "LEMON_SQUEEZY_URL",
+    "LEMON_SQUEEZY_API_KEY",
     "VERCEL",
-    "VERCEL_URL",
-    "API_URL"
+    "VERCEL_URL"
   ]
 }

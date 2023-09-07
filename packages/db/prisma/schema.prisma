@@ -10,10 +10,16 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id      String @id @default(cuid())
-    title   String
-    content String
+enum SubscriptionFrequency {
+    day
+    week
+    month
+    year
+}
+
+enum SubscriptionPlanSlug {
+    free
+    plus
 }
 
 // NextAuth.js Models
@@ -21,23 +27,24 @@ model Post {
 // uncomment the @db.Text annotations below
 // @see https://next-auth.js.org/schemas/models
 model Account {
-    id                String   @id @default(cuid())
-    userId            String   @map("user_id")
-    type              String
-    provider          String
-    providerAccountId String   @map("provider_account_id")
-    providerUsername  String?  @map("provider_username")
-    refresh_token     String?  @db.Text
-    access_token      String?  @db.Text
-    expires_at        Int?
-    token_type        String?
-    scope             String?
-    id_token          String?  @db.Text
-    session_state     String?
-    user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-    isActive          Boolean  @default(true) @map("is_active")
-    createdAt         DateTime @default(now()) @map("created_at")
-    updatedAt         DateTime @updatedAt @map("updated_at")
+    id                 String   @id @default(cuid())
+    userId             String   @map("user_id")
+    type               String
+    provider           String
+    providerAccountId  String   @map("provider_account_id")
+    refresh_token      String?  @db.Text
+    access_token       String?  @db.Text
+    oauth_token_secret String?  @db.Text
+    oauth_token        String?  @db.Text
+    expires_at         Int?
+    token_type         String?
+    scope              String?
+    id_token           String?  @db.Text
+    session_state      String?
+    user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    isActive           Boolean  @default(true) @map("is_active")
+    createdAt          DateTime @default(now()) @map("created_at")
+    updatedAt          DateTime @updatedAt @map("updated_at")
 
     @@unique([provider, providerAccountId])
     @@map("accounts")
@@ -67,16 +74,58 @@ model VerificationToken {
 }
 
 model User {
-    id            String    @id @default(cuid())
+    id            String        @id @default(cuid())
     name          String?
-    email         String?   @unique
-    image         String    @default("")
-    emailVerified DateTime? @map("email_verified")
+    username      String?
+    email         String?       @unique
+    image         String        @default("")
+    emailVerified DateTime?     @map("email_verified")
     accounts      Account[]
     sessions      Session[]
-    isActive      Boolean   @default(true) @map("is_active")
-    createdAt     DateTime  @default(now()) @map("created_at")
-    updatedAt     DateTime  @updatedAt @map("updated_at")
+    subscription  Subscription?
+    isActive      Boolean       @default(true) @map("is_active")
+    createdAt     DateTime      @default(now()) @map("created_at")
+    updatedAt     DateTime      @updatedAt @map("updated_at")
 
     @@map("users")
+}
+
+model SubscriptionPlan {
+    id           String               @id @default(cuid())
+    productId    String?              @map("product_id")
+    variants     String[]
+    slug         SubscriptionPlanSlug @unique @default(free)
+    name         String
+    description  String
+    nodeQuota    Int                  @default(100) @map("node_quota")
+    priceMonthly Float                @default(0) @map("price_monthly")
+    priceYearly  Float                @default(0) @map("price_yearly")
+    hrefMonthly  String               @map("href_monthly")
+    hrefYearly   String               @map("href_yearly")
+    features     String[]
+    mostPopular  Boolean              @default(false) @map("most_popular")
+    tier         Int                  @default(0)
+    isActive     Boolean              @default(true) @map("is_active")
+    createdAt    DateTime             @default(now()) @map("created_at")
+    updatedAt    DateTime             @updatedAt @map("updated_at")
+    Subscription Subscription[]
+
+    @@map("subscription_plans")
+}
+
+model Subscription {
+    id                 String                @id @default(cuid())
+    user               User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId             String                @unique @map("user_id")
+    subscriptionPlan   SubscriptionPlan      @relation(fields: [subscriptionPlanId], references: [id], onDelete: Cascade)
+    subscriptionPlanId String                @map("subscription_plan_id")
+    frequency          SubscriptionFrequency @default(month)
+    isActive           Boolean               @default(true) @map("is_active")
+    renewsAt           DateTime?             @map("renews_at")
+    startsAt           DateTime              @default(now()) @map("starts_at")
+    endsAt             DateTime?             @map("ends_at")
+    createdAt          DateTime              @default(now()) @map("created_at")
+    updatedAt          DateTime              @updatedAt @map("updated_at")
+
+    @@map("subscriptions")
 }

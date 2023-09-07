@@ -1,16 +1,11 @@
-import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next';
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { signIn, useSession } from 'next-auth/react';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Button, ButtonSize, ButtonVariant } from 'side-ui';
 import { Icon, IconCatalog } from '~/components';
 
-type HomeProps = {};
-
-const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { t } = useTranslation(['nextjs']);
+const Home: NextPage = () => {
   const { data: sessionData } = useSession();
 
   return (
@@ -31,7 +26,9 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
             </a>
           </div>
           <div className="mb-4 w-96">
-            <h1 className="text-center text-3xl font-bold text-slate-50">{t('nextjs:home.pov')}</h1>
+            <h1 className="text-center text-3xl font-bold text-slate-50">
+              This is a starter kit template
+            </h1>
           </div>
           {sessionData ? (
             <p className="text-lg text-white">{sessionData.user.name}</p>
@@ -39,9 +36,9 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
             <Button
               variant={ButtonVariant.secondary}
               size={ButtonSize.sm}
-              onClick={() => signIn('discord')}
+              onClick={() => signIn('twitter')}
             >
-              {t('nextjs:component.button.logInWithDiscord')}
+              Log in with Twitter
             </Button>
           )}
         </div>
@@ -50,7 +47,7 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
         <div className="flex flex-wrap justify-center gap-x-1 gap-y-3 sm:gap-x-2 lg:justify-start">
           <Link
             className="group relative isolate flex flex-none items-center gap-x-3 rounded-lg px-2 py-0.5 font-medium text-white/30 transition-colors hover:text-primary-200"
-            href="https://discord.com/invite/77guznJ8mZ"
+            href="https://indiecreatorshq.com/discord"
             target="_blank"
           >
             <Icon icon={IconCatalog.discord} className="h-6 w-6 text-white" isSolid />
@@ -74,11 +71,5 @@ const Home: NextPage = (_props: InferGetServerSidePropsType<typeof getServerSide
     </>
   );
 };
-
-export const getServerSideProps: GetServerSideProps<HomeProps> = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale ?? 'en', ['nextjs'])),
-  },
-});
 
 export default Home;

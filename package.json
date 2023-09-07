@@ -16,6 +16,7 @@
     "app:docker:shutdown": "pnpm clean:workspaces && docker compose --profile dev down",
     "db:generate": "turbo db:generate",
     "db:push": "turbo db:push db:generate",
+    "db:migrate": "turbo db:migrate",
     "dev": "turbo dev --parallel",
     "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,json}\" --ignore-path .gitignore",
     "lint": "turbo lint && manypkg check",
@@ -36,7 +37,7 @@
     "prettier": "^2.8.7",
     "prettier-plugin-prisma": "^4.10.0",
     "prettier-plugin-tailwindcss": "^0.2.7",
-    "side-ui": "^0.1.28",
+    "side-ui": "^0.15.1",
     "tailwindcss-scrollbar": "^0.1.0",
     "turbo": "^1.9.3",
     "typescript": "^5.0.4"
