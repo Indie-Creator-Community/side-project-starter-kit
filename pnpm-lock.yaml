@@ -16,7 +16,7 @@ importers:
       prettier: ^2.8.8
       prettier-plugin-prisma: ^4.17.0
       prettier-plugin-tailwindcss: ^0.2.8
-      side-ui: ^0.15.1
+      side-ui: ^0.15.0
       tailwindcss-scrollbar: ^0.1.0
       turbo: ^1.10.13
       typescript: ^5.2.2
@@ -1411,6 +1411,7 @@ packages:
   /autoprefixer/10.4.15_postcss@8.4.29:
     resolution: {integrity: sha512-KCuPB8ZCIqFdA4HwKXsvz7j6gvSDNhDP7WnUjBleRkKjPdvCmHFuQ77ocavI8FT6NdvlBnE2UFr2H4Mycn8Vew==}
     engines: {node: ^10 || ^12 || >=14}
+    hasBin: true
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
@@ -2030,6 +2031,7 @@ packages:
 
   /eslint-config-prettier/8.10.0_eslint@8.48.0:
     resolution: {integrity: sha512-SM8AMJdeQqRYT9O9zguiruQZaN7+z+E4eAP9oiLNGKMtomwaB1E9dcgUD6ZAn/eQAb52USbvezbiljfZUhbJcg==}
+    hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
     dependencies:
@@ -3341,6 +3343,7 @@ packages:
   /next/13.4.19_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-HuPSzzAbJ1T4BD8e0bs6B9C1kWQ6gv8ykZoRWs5AQoiIuqbGHHdQO7Ljuvg05Q0Z24E2ABozHe6FxDvI6HfyAw==}
     engines: {node: '>=16.8.0'}
+    hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
       react: ^18.2.0
