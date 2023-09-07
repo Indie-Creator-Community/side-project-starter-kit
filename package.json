@@ -37,7 +37,7 @@
     "prettier": "^2.8.8",
     "prettier-plugin-prisma": "^4.17.0",
     "prettier-plugin-tailwindcss": "^0.2.8",
-    "side-ui": "^0.15.0",
+    "side-ui": "^0.15.1",
     "tailwindcss-scrollbar": "^0.1.0",
     "turbo": "^1.10.13",
     "typescript": "^5.2.2"
