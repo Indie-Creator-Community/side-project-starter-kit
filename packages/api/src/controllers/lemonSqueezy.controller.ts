@@ -118,7 +118,7 @@ export const subscriptionCreatedHandler = async ({
 
     return {
       status: Response.SUCCESS,
-      data: {
+      result: {
         subscription: newSubscription,
       },
     };
