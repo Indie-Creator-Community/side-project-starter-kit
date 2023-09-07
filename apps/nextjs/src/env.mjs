@@ -17,13 +17,10 @@ const server = z.object({
     process.env.VERCEL ? z.string() : z.string().url(),
   ),
   // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
-  API_URL: z.string().url().min(1),
-  DISCORD_CLIENT_ID: z.string(),
-  DISCORD_CLIENT_SECRET: z.string(),
-  DISCORD_SERVER_ID: z.string().min(1),
-  DISCORD_BOT_TOKEN: z.string().min(1),
-  DISCORD_WEBHOOK_URL: z.string().url().min(1),
-  PREFIX: z.string(),
+  LEMON_SQUEEZY_URL: z.string().url().min(1),
+  LEMON_SQUEEZY_API_KEY: z.string().min(1),
+  TWITTER_CONSUMER_KEY: z.string(),
+  TWITTER_CONSUMER_SECRET: z.string(),
 });
 
 /**
@@ -45,13 +42,10 @@ const processEnv = {
   NODE_ENV: process.env.NODE_ENV,
   NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
   NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-  API_URL: process.env.API_URL,
-  DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
-  DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
-  DISCORD_SERVER_ID: process.env.DISCORD_SERVER_ID,
-  DISCORD_BOT_TOKEN: process.env.DISCORD_BOT_TOKEN,
-  DISCORD_WEBHOOK_URL: process.env.DISCORD_WEBHOOK_URL,
-  PREFIX: process.env.PREFIX,
+  LEMON_SQUEEZY_URL: process.env.LEMON_SQUEEZY_URL,
+  LEMON_SQUEEZY_API_KEY: process.env.LEMON_SQUEEZY_API_KEY,
+  TWITTER_CONSUMER_KEY: process.env.TWITTER_CONSUMER_KEY,
+  TWITTER_CONSUMER_SECRET: process.env.TWITTER_CONSUMER_SECRET,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 

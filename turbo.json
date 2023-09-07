@@ -49,7 +49,6 @@
     "LEMON_SQUEEZY_URL",
     "LEMON_SQUEEZY_API_KEY",
     "VERCEL",
-    "VERCEL_URL",
-    "API_URL"
+    "VERCEL_URL"
   ]
 }
