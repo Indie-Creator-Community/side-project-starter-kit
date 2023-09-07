@@ -8,10 +8,10 @@ importers:
         specifier: ^0.1.0
         version: link:packages/config/eslint
       '@commitlint/cli':
-        specifier: ^17.7.1
+        specifier: ^17.4.4
         version: 17.7.1
       '@commitlint/config-conventional':
-        specifier: ^17.7.0
+        specifier: ^17.4.4
         version: 17.7.0
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^3.7.2
@@ -20,25 +20,25 @@ importers:
         specifier: ^0.20.0
         version: 0.20.0
       '@types/prettier':
-        specifier: ^2.7.3
+        specifier: ^2.7.2
         version: 2.7.3
       eslint:
-        specifier: ^8.48.0
+        specifier: ^8.38.0
         version: 8.48.0
       husky:
         specifier: ^8.0.3
         version: 8.0.3
       lint-staged:
-        specifier: ^13.3.0
+        specifier: ^13.2.0
         version: 13.3.0
       prettier:
-        specifier: ^2.8.8
+        specifier: ^2.8.7
         version: 2.8.8
       prettier-plugin-prisma:
-        specifier: ^4.17.0
+        specifier: ^4.10.0
         version: 4.17.0(prettier@2.8.8)
       prettier-plugin-tailwindcss:
-        specifier: ^0.2.8
+        specifier: ^0.2.7
         version: 0.2.8(@ianvs/prettier-plugin-sort-imports@3.7.2)(prettier@2.8.8)
       side-ui:
         specifier: ^0.15.1
@@ -47,10 +47,10 @@ importers:
         specifier: ^0.1.0
         version: 0.1.0
       turbo:
-        specifier: ^1.10.13
+        specifier: ^1.9.3
         version: 1.10.13
       typescript:
-        specifier: ^5.2.2
+        specifier: ^5.0.4
         version: 5.2.2
 
   apps/nextjs:
