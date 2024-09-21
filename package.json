@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "engines": {
-    "node": ">=v18.16.0"
+    "node": ">=v20.13.1"
   },
-  "packageManager": "pnpm@8.3.1",
+  "packageManager": "pnpm@9.9.0",
   "scripts": {
     "build": "turbo build",
     "clean": "git clean -xdf node_modules",
@@ -25,7 +25,7 @@
     "prepare": "npx husky install"
   },
   "dependencies": {
-    "@acme/eslint-config": "^0.1.0",
+    "@acme/eslint-config": "workspace:*",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
@@ -39,7 +39,7 @@
     "prettier-plugin-tailwindcss": "^0.2.7",
     "side-ui": "^0.15.1",
     "tailwindcss-scrollbar": "^0.1.0",
-    "turbo": "^1.9.3",
+    "turbo": "^2.1.2",
     "typescript": "^5.0.4"
   }
 }
