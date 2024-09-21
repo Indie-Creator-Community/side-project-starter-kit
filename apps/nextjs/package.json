@@ -14,9 +14,9 @@
     "with-env": "dotenv -e ../../.env.${NODE_ENV:-local} --"
   },
   "dependencies": {
-    "@acme/api": "^0.1.0",
-    "@acme/auth": "^0.1.0",
-    "@acme/db": "^0.1.0",
+    "@acme/api": "workspace:*",
+    "@acme/auth": "workspace:*",
+    "@acme/db": "workspace:*",
     "@tanstack/react-query": "^4.29.2",
     "@trpc/client": "^10.20.0",
     "@trpc/next": "^10.20.0",
@@ -30,7 +30,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@acme/eslint-config": "^0.1.0",
+    "@acme/eslint-config": "workspace:*",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
