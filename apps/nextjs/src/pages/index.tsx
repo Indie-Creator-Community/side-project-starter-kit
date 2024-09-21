@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Icon, IconCatalog } from '~/components';
 import { signIn, useSession } from 'next-auth/react';
 import { Button, ButtonSize, ButtonVariant } from 'side-ui';
-import { Icon, IconCatalog } from '~/components';
 
 const Home: NextPage = () => {
   const { data: sessionData } = useSession();
@@ -18,26 +18,17 @@ const Home: NextPage = () => {
       <main className="relative flex h-screen w-full flex-none flex-col items-center justify-center gap-10 overflow-hidden bg-slate-900 p-10">
         <div className="relative flex h-min w-min flex-none flex-col flex-wrap items-center justify-center gap-4 overflow-hidden p-0">
           <div className="mb-2 flex flex-row items-center gap-4 text-white">
-            <a
-              className="text-2xl font-semibold text-secondary-300 transition hover:opacity-80"
-              href="/"
-            >
+            <a className="text-2xl font-semibold text-secondary-300 transition hover:opacity-80" href="/">
               Side Project Starter Kit
             </a>
           </div>
           <div className="mb-4 w-96">
-            <h1 className="text-center text-3xl font-bold text-slate-50">
-              This is a starter kit template
-            </h1>
+            <h1 className="text-center text-3xl font-bold text-slate-50">This is a starter kit template</h1>
           </div>
           {sessionData ? (
             <p className="text-lg text-white">{sessionData.user.name}</p>
           ) : (
-            <Button
-              variant={ButtonVariant.secondary}
-              size={ButtonSize.sm}
-              onClick={() => signIn('twitter')}
-            >
+            <Button variant={ButtonVariant.secondary} size={ButtonSize.sm} onClick={() => void signIn('twitter')}>
               Log in with Twitter
             </Button>
           )}

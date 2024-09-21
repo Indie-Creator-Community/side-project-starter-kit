@@ -8,7 +8,7 @@
   "packageManager": "pnpm@9.9.0",
   "scripts": {
     "build": "turbo build",
-    "clean": "git clean -xdf node_modules",
+    "clean": "git clean -xdf .turbo node_modules dist",
     "clean:workspaces": "turbo clean",
     "db:docker:startup": "docker compose --profile db up -d",
     "db:docker:shutdown": "docker compose --profile db down",

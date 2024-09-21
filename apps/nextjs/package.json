@@ -5,7 +5,7 @@
   "author": "Indie Creators HQ",
   "scripts": {
     "build": "pnpm with-env next build",
-    "clean": "git clean -xdf .next .turbo node_modules",
+    "clean": "git clean -xdf .next .turbo node_modules dist",
     "dev": "pnpm with-env next dev",
     "lint": "dotenv -v SKIP_ENV_VALIDATION=1 next lint",
     "lint:fix": "pnpm lint --fix",
@@ -38,7 +38,7 @@
     "dotenv-cli": "^7.2.1",
     "eslint": "^8.38.0",
     "postcss": "^8.4.22",
-    "tailwindcss": "^3.4.10",
+    "tailwindcss": "^3.4.12",
     "typescript": "^5.0.4"
   }
 }
