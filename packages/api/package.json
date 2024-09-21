@@ -12,15 +12,15 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/auth": "^0.1.0",
-    "@acme/db": "^0.1.0",
+    "@acme/auth": "workspace:*",
+    "@acme/db": "workspace:*",
     "@trpc/client": "^10.20.0",
     "@trpc/server": "^10.20.0",
     "superjson": "1.9.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@acme/eslint-config": "^0.1.0",
+    "@acme/eslint-config": "workspace:*",
     "eslint": "^8.38.0",
     "typescript": "^5.0.4"
   }

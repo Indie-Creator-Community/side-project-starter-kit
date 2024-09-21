@@ -1,7 +1,8 @@
 {
   "$schema": "https://turborepo.org/schema.json",
+  "ui": "tui",
   "globalDependencies": ["**/.env.production", "**/.env.development", "**/.env.local"],
-  "pipeline": {
+  "tasks": {
     "db:generate": {
       "inputs": ["prisma/schema.prisma"],
       "cache": false
