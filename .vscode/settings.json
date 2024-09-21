@@ -1,7 +1,7 @@
 {
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
@@ -20,5 +20,16 @@
   },
   "editor.formatOnSave": true,
   "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // Tailwind CSS
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "classes", "cn"],
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "css": "css",
+    "astro": "astro",
+    "vue": "vue",
+    "typescript": "typescript"
+  }
 }
