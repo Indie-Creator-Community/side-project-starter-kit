@@ -13,10 +13,11 @@ const config = {
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'all',
-  plugins: ['@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss', 'prettier-plugin-jsdoc'],
+  plugins: ['@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-jsdoc', 'prettier-plugin-tailwindcss'],
 
   /** Tailwind Plugin Config. */
   tailwindConfig: './tailwind.config',
+  tailwindFunctions: ['cn', 'clsx', 'cva'],
 
   /** JSdoc Plugin Config. */
   jsdocPrintWidth: 80,
