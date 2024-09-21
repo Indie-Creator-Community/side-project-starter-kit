@@ -29,7 +29,7 @@
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
-    "@manypkg/cli": "^0.20.0",
+    "@manypkg/cli": "^0.21.4",
     "@types/prettier": "^2.7.2",
     "eslint": "^8.38.0",
     "husky": "^8.0.3",
